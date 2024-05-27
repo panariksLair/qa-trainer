@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Qatrainer"
         tools:targetApi="31">
         <activity
+            android:name=".ui.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/Theme.Qatrainer.Fullscreen" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

@@ -16,5 +16,14 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_full_screen"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_fullscreen" />
+        <item
+            android:id="@+id/nav_full_screen_activity"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/menu_fullscreen" />
+
     </group>
 </menu>

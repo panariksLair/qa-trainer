@@ -22,4 +22,14 @@
         android:name="com.github.panarik.qa_trainer.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_full_screen"
+        android:name="com.github.panarik.qa_trainer.ui.full_screen.FullscreenFragment"
+        android:label="@string/menu_fullscreen"
+        tools:layout="@layout/fragment_fullscreen" />
+    <activity
+        android:id="@+id/nav_full_screen_activity"
+        android:name="com.github.panarik.qa_trainer.ui.FullscreenActivity"
+        android:label="activity_fullscreen"
+        tools:layout="@layout/activity_fullscreen" />
 </navigation>
