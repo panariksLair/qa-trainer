@@ -17,7 +17,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="false"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/Theme.Qatrainer.Fullscreen" />
+            android:theme="@style/Theme.Qatrainer.NoActionBar"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

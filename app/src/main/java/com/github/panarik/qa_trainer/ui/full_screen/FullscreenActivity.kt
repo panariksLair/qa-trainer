@@ -1,6 +1,5 @@
 package com.github.panarik.qa_trainer.ui.full_screen
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -8,18 +7,18 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowInsets
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.github.panarik.qa_trainer.databinding.ActivityFullscreenBinding
 
 class FullscreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFullscreenBinding
     private lateinit var fullscreenContent: View
-    private lateinit var fullscreenContentControls: LinearLayout
     private val hideHandler = Handler(Looper.myLooper()!!)
 
     private val hidePart2Runnable = Runnable {
         if (Build.VERSION.SDK_INT >= 30) {
-            fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars() )
+            fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.statusBars())
             fullscreenContent.windowInsetsController?.hide(WindowInsets.Type.navigationBars())
         } else {
             fullscreenContent.systemUiVisibility =
@@ -33,7 +32,6 @@ class FullscreenActivity : AppCompatActivity() {
     }
     private val showPart2Runnable = Runnable {
         supportActionBar?.show()
-        fullscreenContentControls.visibility = View.VISIBLE
     }
     private val hideRunnable = Runnable { hide() }
 
@@ -43,7 +41,6 @@ class FullscreenActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         fullscreenContent = binding.fullscreenContent
-        fullscreenContentControls = binding.fullscreenContentControls
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
