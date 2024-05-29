@@ -9,19 +9,19 @@
         android:id="@+id/nav_about_app"
         android:name="com.github.panarik.qa_trainer.ui.main.about_app.AboutAppFragment"
         android:label="@string/menu_about_app"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_about_app" />
 
     <fragment
-        android:id="@+id/nav_Theory"
-        android:name="com.github.panarik.qa_trainer.ui.main.article.ArticleFragment"
-        android:label="@string/menu_article"
-        tools:layout="@layout/fragment_article" />
+        android:id="@+id/nav_theory"
+        android:name="com.github.panarik.qa_trainer.ui.main.theory.TheoryFragment"
+        android:label="@string/menu_theory"
+        tools:layout="@layout/fragment_theory" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.github.panarik.qa_trainer.ui.main.slideshow.SlideshowFragment"
+        android:id="@+id/nav_test_cases"
+        android:name="com.github.panarik.qa_trainer.ui.main.test_cases.TestCasesFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_test_cases" />
 
     <activity
         android:id="@+id/nav_full_screen_activity"

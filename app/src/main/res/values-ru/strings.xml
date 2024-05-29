@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QA Тренер</string>
+    <string name="nav_header_title">QA Тренер</string>
+    <string name="nav_header_desc">" "</string>
+    <string name="action_settings">Настройки</string>
+    <string name="menu_about_app">О приложении</string>
+    <string name="menu_theory">Теория тестирования</string>
+</resources>
