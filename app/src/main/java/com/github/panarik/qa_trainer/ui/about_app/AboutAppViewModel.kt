@@ -1,4 +1,4 @@
-package com.github.panarik.qa_trainer.ui.main.about_app
+package com.github.panarik.qa_trainer.ui.about_app
 
 
 import androidx.lifecycle.ViewModel

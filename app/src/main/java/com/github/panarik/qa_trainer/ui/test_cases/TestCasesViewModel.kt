@@ -1,4 +1,4 @@
-package com.github.panarik.qa_trainer.ui.main.test_cases
+package com.github.panarik.qa_trainer.ui.test_cases
 
 import androidx.lifecycle.ViewModel
 

@@ -6,12 +6,13 @@
     <string name="nav_header_subtitle" translatable="false">panariks@gmail.com</string>
     <string name="action_settings">Settings</string>
 
+    <string name="menu_home">Home</string>
     <string name="menu_about_app">About app</string>
-    <string name="menu_slideshow">Test cases</string>
-    <string name="menu_fullscreen">Full Screen</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="menu_slideshow" translatable="false">Test cases</string>
+    <string name="menu_fullscreen" translatable="false">Full Screen</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
+    <string name="title_activity_fullscreen" translatable="false">FullscreenActivity</string>
     <string name="nav_header_desc">" "</string>
     <string name="menu_theory">Testing theory</string>
 </resources>

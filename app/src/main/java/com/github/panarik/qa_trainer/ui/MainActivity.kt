@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,9 +28,10 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_about_app,
-                R.id.nav_theory,
-                R.id.nav_test_cases,
+                R.id.nav_home_fragment,
+                R.id.nav_about_app_fragment,
+                R.id.nav_theory_fragment,
+                R.id.nav_test_cases_fragment,
                 R.id.nav_full_screen_activity
             ), drawerLayout
         )

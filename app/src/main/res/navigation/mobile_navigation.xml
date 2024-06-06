@@ -3,23 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_about_app">
+    app:startDestination="@+id/nav_home_fragment">
 
     <fragment
-        android:id="@+id/nav_about_app"
-        android:name="com.github.panarik.qa_trainer.ui.main.about_app.AboutAppFragment"
+        android:id="@+id/nav_home_fragment"
+        android:name="com.github.panarik.qa_trainer.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_about_app_fragment"
+        android:name="com.github.panarik.qa_trainer.ui.about_app.AboutAppFragment"
         android:label="@string/menu_about_app"
         tools:layout="@layout/fragment_about_app" />
 
     <fragment
-        android:id="@+id/nav_theory"
+        android:id="@+id/nav_theory_fragment"
         android:name="com.github.panarik.qa_trainer.ui.main.theory.TheoryFragment"
         android:label="@string/menu_theory"
         tools:layout="@layout/fragment_theory" />
 
     <fragment
-        android:id="@+id/nav_test_cases"
-        android:name="com.github.panarik.qa_trainer.ui.main.test_cases.TestCasesFragment"
+        android:id="@+id/nav_test_cases_fragment"
+        android:name="com.github.panarik.qa_trainer.ui.test_cases.TestCasesFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_test_cases" />
 
