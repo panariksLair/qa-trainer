@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.github.panarik.qa_trainer.databinding.FragmentTrainerShemeBinding
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
 
 class TrainerSchemeFragment : Fragment() {
 
@@ -26,6 +27,13 @@ class TrainerSchemeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    fun showTrainer(trainerScheme: TrainerScheme?) {
+        if (trainerScheme != null) {
+            binding?.trainerName?.text = trainerScheme.name
+        }
+
     }
 
 }

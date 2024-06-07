@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="?attr/actionBarSize"
     tools:context=".ui.trainer.TrainerSchemeFragment">
 
     <TextView
+        android:id="@+id/trainer_name"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Hello" />

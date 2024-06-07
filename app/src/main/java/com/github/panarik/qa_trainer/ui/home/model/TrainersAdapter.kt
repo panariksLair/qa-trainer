@@ -1,11 +1,15 @@
 package com.github.panarik.qa_trainer.ui.home.model
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.panarik.qa_trainer.databinding.HomeItemsRowBinding
 
-class TrainersAdapter(private val trainers: List<TrainerModel>) :
+class TrainersAdapter(
+    private val trainers: List<TrainerModel>,
+    private val listener: (Int) -> Unit
+) :
     RecyclerView.Adapter<TrainersAdapter.TrainerViewHolder>() {
 
     class TrainerViewHolder(val binding: HomeItemsRowBinding) :
@@ -23,7 +27,12 @@ class TrainersAdapter(private val trainers: List<TrainerModel>) :
     override fun getItemCount(): Int = trainers.size
 
     override fun onBindViewHolder(holder: TrainerViewHolder, position: Int) {
-        holder.binding.homeText1.text = trainers[position].name
+        holder.binding.homeTrainerImage.setImageResource(trainers[position].imageSource)
+        holder.binding.homeTrainerName.text = trainers[position].name
+        holder.binding.homeItemCardView.setOnClickListener {
+            Log.d("Adapter", "Home item $position is clicked.")
+            listener(position)
+        }
     }
 }
 

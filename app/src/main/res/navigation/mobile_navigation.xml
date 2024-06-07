@@ -9,7 +9,11 @@
         android:id="@+id/nav_home_fragment"
         android:name="com.github.panarik.qa_trainer.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_fragment_to_trainerSchemeFragment"
+            app:destination="@id/trainerSchemeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_about_app_fragment"
@@ -34,4 +38,9 @@
         android:name="com.github.panarik.qa_trainer.ui.full_screen.FullscreenActivity"
         android:label="activity_fullscreen"
         tools:layout="@layout/activity_fullscreen" />
+    <fragment
+        android:id="@+id/trainerSchemeFragment"
+        android:name="com.github.panarik.qa_trainer.ui.trainer.TrainerSchemeFragment"
+        android:label="fragment_trainer_sheme"
+        tools:layout="@layout/fragment_trainer_sheme" />
 </navigation>
