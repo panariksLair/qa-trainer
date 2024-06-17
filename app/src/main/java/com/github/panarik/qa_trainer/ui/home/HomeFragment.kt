@@ -21,7 +21,9 @@ class HomeFragment : Fragment() {
 
     private val model: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
     private lateinit var binding: FragmentHomeBinding
-    private val trainersScheme = listOf(TrainerScheme("TMS Trainer scheme"))
+    private val trainersScheme = listOf(
+        TrainerScheme("TMS Trainer scheme", listOf("first topic", "second topic", "third topic"))
+    )
 
     override fun onCreateView(inf: LayoutInflater, con: ViewGroup?, state: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(inf, con, false)
