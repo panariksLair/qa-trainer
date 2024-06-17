@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.FragmentTrainerShemeBinding
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemAdapter
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerTopic
 
 class TrainerSchemeFragment : Fragment() {
 
@@ -16,6 +20,11 @@ class TrainerSchemeFragment : Fragment() {
 
     override fun onCreateView(inf: LayoutInflater, con: ViewGroup?, state: Bundle?): View {
         binding = FragmentTrainerShemeBinding.inflate(inf, con, false)
+        binding!!.recyclerView.let {
+            it.setHasFixedSize(true)
+            it.layoutManager = LinearLayoutManager(this.context)
+            it.adapter = TrainerItemAdapter(getTopics())
+        }
         return binding!!.root
     }
 
@@ -33,7 +42,15 @@ class TrainerSchemeFragment : Fragment() {
         if (trainerScheme != null) {
             binding?.trainerName?.text = trainerScheme.name
         }
-
     }
+
+    private fun getTopics(): List<TrainerTopic> =
+        listOf(
+            TrainerTopic(
+                "Trainer topic 1",
+                R.drawable.home_item_tms_image,
+                "Topic 1 Description"
+            )
+        )
 
 }
