@@ -11,12 +11,7 @@ class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
     RecyclerView.Adapter<TrainerItemAdapter.TrainerItemViewHolder>() {
 
     inner class TrainerItemViewHolder(val binding: TrainerSchemeItemBinding) :
-        RecyclerView.ViewHolder(binding.root) {
-
-        fun collapseExpandedView() {
-            binding.trainerTopicDescription.visibility = View.GONE
-        }
-    }
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrainerItemViewHolder =
         TrainerItemViewHolder(
@@ -29,32 +24,27 @@ class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
 
     override fun onBindViewHolder(holder: TrainerItemViewHolder, position: Int) {
         val topic = topics[position]
-        holder.binding.trainerTopicStatusImage.setImageResource(getStatus(topic.status))
-        holder.binding.trainerTopicName.text = topic.name
-        holder.binding.trainerTopicDescription.text = topic.desc
-        holder.binding.trainerTopicDescription.visibility =
-            if (topic.hasExpand) View.VISIBLE else View.GONE
-        holder.binding.trainerTopicSummary.setOnClickListener {
+        updateTopic(holder, topic)
+        holder.binding.trainerTopicExpanded.setOnClickListener {
             hideOtherDescriptions(position)
             topic.hasExpand = !topic.hasExpand // switch current topic description
             notifyItemChanged(position)
         }
     }
 
-    override fun onBindViewHolder(
-        holder: TrainerItemViewHolder,
-        position: Int,
-        payloads: MutableList<Any>
-    ) {
-        if (payloads.isNotEmpty() && payloads[0] == 0) {
-            holder.collapseExpandedView()
-        } else {
-            super.onBindViewHolder(holder, position, payloads)
-        }
-    }
-
     override fun getItemCount(): Int {
         return topics.size
+    }
+
+    private fun updateTopic(holder: TrainerItemViewHolder, topic: TrainerTopic) {
+        holder.binding.trainerTopicStatusImage.setImageResource(getStatus(topic.status))
+        holder.binding.trainerTopicName.text = topic.name
+        holder.binding.trainerTopicDescription.text = topic.desc
+        holder.binding.trainerTopicDescription.visibility =
+            if (topic.hasExpand) View.VISIBLE else View.GONE
+        holder.binding.trainerTopicExpanded.setImageResource(
+            if (topic.hasExpand) R.drawable.trainer_item_arrow_up_24 else R.drawable.trainer_item_arrow_down_24
+        )
     }
 
     private fun hideOtherDescriptions(position: Int) {
