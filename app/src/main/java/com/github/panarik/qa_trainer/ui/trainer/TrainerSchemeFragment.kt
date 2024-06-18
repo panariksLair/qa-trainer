@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.FragmentTrainerShemeBinding
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemAdapter
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
@@ -46,11 +45,7 @@ class TrainerSchemeFragment : Fragment() {
 
     private fun getTopics(): List<TrainerTopic> =
         listOf(
-            TrainerTopic(
-                "Trainer topic 1",
-                R.drawable.home_item_tms_image,
-                "Topic 1 Description"
-            )
+            TrainerTopic("Trainer topic 1", "Topic 1 Description", 1),
+            TrainerTopic("Trainer topic 2", "Topic 2 Description")
         )
-
 }

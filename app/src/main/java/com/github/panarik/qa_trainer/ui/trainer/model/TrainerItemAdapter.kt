@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.TrainerSchemeItemBinding
 
 class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
@@ -28,25 +29,15 @@ class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
 
     override fun onBindViewHolder(holder: TrainerItemViewHolder, position: Int) {
         val topic = topics[position]
-        holder.binding.trainerTopicStatusImage.setImageResource(topic.status)
+        holder.binding.trainerTopicStatusImage.setImageResource(getStatus(topic.status))
         holder.binding.trainerTopicName.text = topic.name
         holder.binding.trainerTopicDescription.text = topic.desc
         holder.binding.trainerTopicDescription.visibility =
-            if (topic.isExpandable) View.VISIBLE else View.GONE
+            if (topic.hasExpand) View.VISIBLE else View.GONE
         holder.binding.trainerTopicSummary.setOnClickListener {
-            isAnyItemExpanded(position)
-            topic.isExpandable = !topic.isExpandable
-            notifyItemChanged(position, Unit)
-        }
-    }
-
-    private fun isAnyItemExpanded(position: Int) {
-        val temp = topics.indexOfFirst {
-            it.isExpandable
-        }
-        if (temp >= 0 && temp != position) {
-            topics[temp].isExpandable = false
-            notifyItemChanged(temp, 0)
+            hideOtherDescriptions(position)
+            topic.hasExpand = !topic.hasExpand // switch current topic description
+            notifyItemChanged(position)
         }
     }
 
@@ -65,4 +56,20 @@ class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
     override fun getItemCount(): Int {
         return topics.size
     }
+
+    private fun hideOtherDescriptions(position: Int) {
+        topics.forEachIndexed { index, topic ->
+            if (index != position && topic.hasExpand) {
+                topics[index].hasExpand = false
+                notifyItemChanged(index)
+            }
+        }
+    }
+
+    private fun getStatus(topic: Int): Int =
+        when (topic) {
+            0 -> R.drawable.trainer_item_box_unchecked_24
+            1 -> R.drawable.trainer_item_box_checked_24
+            else -> R.drawable.ic_launcher_foreground
+        }
 }
