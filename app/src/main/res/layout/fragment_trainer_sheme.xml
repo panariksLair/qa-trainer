@@ -5,7 +5,7 @@
     android:id="@+id/trainer_top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.trainer.TrainerSchemeFragment">
+    tools:context=".ui.trainer.scheme.TrainerSchemeFragment">
 
     <ImageView
         android:id="@+id/trainer_logo"

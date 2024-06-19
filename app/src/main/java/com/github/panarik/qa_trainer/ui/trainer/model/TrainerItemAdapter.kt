@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.TrainerSchemeItemBinding
 
-class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
+class TrainerItemAdapter(private var topics: List<TrainerTopic>, private val listener: (Int) -> Unit) :
     RecyclerView.Adapter<TrainerItemAdapter.TrainerItemViewHolder>() {
 
     inner class TrainerItemViewHolder(val binding: TrainerSchemeItemBinding) :
@@ -29,6 +29,9 @@ class TrainerItemAdapter(private var topics: List<TrainerTopic>) :
             hideOtherDescriptions(position)
             topic.hasExpand = !topic.hasExpand // switch current topic description
             notifyItemChanged(position)
+        }
+        holder.binding.trainerTopicSummary.setOnClickListener{
+            listener(position)
         }
     }
 

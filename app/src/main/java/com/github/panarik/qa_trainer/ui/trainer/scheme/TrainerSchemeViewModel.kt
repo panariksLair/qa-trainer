@@ -1,7 +1,8 @@
-package com.github.panarik.qa_trainer.ui.trainer
+package com.github.panarik.qa_trainer.ui.trainer.scheme
 
 import androidx.lifecycle.ViewModel
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
+import com.github.panarik.qa_trainer.ui.trainer.scheme.TrainerSchemeFragment
 
 class TrainerSchemeViewModel : ViewModel() {
 

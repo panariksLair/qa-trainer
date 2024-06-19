@@ -9,7 +9,7 @@
         android:id="@+id/nav_home_fragment"
         android:name="com.github.panarik.qa_trainer.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_fragment_to_trainerSchemeFragment"
             app:destination="@id/trainerSchemeFragment" />
@@ -40,7 +40,16 @@
         tools:layout="@layout/activity_fullscreen" />
     <fragment
         android:id="@+id/trainerSchemeFragment"
-        android:name="com.github.panarik.qa_trainer.ui.trainer.TrainerSchemeFragment"
+        android:name="com.github.panarik.qa_trainer.ui.trainer.scheme.TrainerSchemeFragment"
         android:label="fragment_trainer_sheme"
-        tools:layout="@layout/fragment_trainer_sheme" />
+        tools:layout="@layout/fragment_trainer_sheme">
+        <action
+            android:id="@+id/action_trainerSchemeFragment_to_trainerBodyFragment"
+            app:destination="@id/trainerBodyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainerBodyFragment"
+        android:name="com.github.panarik.qa_trainer.ui.trainer.body.TrainerBodyFragment"
+        android:label="fragment_trainer_body"
+        tools:layout="@layout/fragment_trainer_body" />
 </navigation>
