@@ -12,7 +12,6 @@ import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.FragmentTrainerShemeBinding
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemAdapter
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
-import com.github.panarik.qa_trainer.ui.trainer.model.TrainerTopic
 
 class TrainerSchemeFragment : Fragment() {
 
@@ -21,13 +20,7 @@ class TrainerSchemeFragment : Fragment() {
 
     override fun onCreateView(inf: LayoutInflater, con: ViewGroup?, state: Bundle?): View {
         binding = FragmentTrainerShemeBinding.inflate(inf, con, false)
-        binding!!.recyclerView.let {
-            it.setHasFixedSize(true)
-            it.layoutManager = LinearLayoutManager(this.context)
-            it.adapter = TrainerItemAdapter(getTopics()) { position ->
-                openTrainerBodyFragment(position)
-            }
-        }
+        model.init(this)
         return binding!!.root
     }
 
@@ -39,11 +32,6 @@ class TrainerSchemeFragment : Fragment() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        model.init(this)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
@@ -51,13 +39,16 @@ class TrainerSchemeFragment : Fragment() {
 
     fun showTrainer(trainerScheme: TrainerScheme?) {
         if (trainerScheme != null) {
+            binding!!.trainerTopics.let {
+                it.setHasFixedSize(true)
+                it.layoutManager = LinearLayoutManager(this.context)
+                it.adapter = TrainerItemAdapter(trainerScheme.topics) { position ->
+                    openTrainerBodyFragment(position)
+                }
+            }
             binding?.trainerName?.text = trainerScheme.name
+            binding?.trainerBanner?.setImageResource(trainerScheme.bannerId)
         }
     }
 
-    private fun getTopics(): List<TrainerTopic> =
-        listOf(
-            TrainerTopic("Trainer topic 1", "Topic 1 Description", 1),
-            TrainerTopic("Trainer topic 2", "Topic 2 Description")
-        )
 }

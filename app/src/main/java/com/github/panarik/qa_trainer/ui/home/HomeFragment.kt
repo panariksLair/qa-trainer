@@ -11,7 +11,6 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.panarik.qa_trainer.R
 import com.github.panarik.qa_trainer.databinding.FragmentHomeBinding
-import com.github.panarik.qa_trainer.ui.home.model.TrainerModel
 import com.github.panarik.qa_trainer.ui.home.model.TrainersAdapter
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerScheme
 
@@ -21,9 +20,6 @@ class HomeFragment : Fragment() {
 
     private val model: HomeViewModel by lazy { ViewModelProvider(this)[HomeViewModel::class.java] }
     private lateinit var binding: FragmentHomeBinding
-    private val trainersScheme = listOf(
-        TrainerScheme("TMS Trainer scheme", listOf("first topic", "second topic", "third topic"))
-    )
 
     override fun onCreateView(inf: LayoutInflater, con: ViewGroup?, state: Bundle?): View? {
         binding = FragmentHomeBinding.inflate(inf, con, false)
@@ -35,11 +31,11 @@ class HomeFragment : Fragment() {
         model.init(this)
     }
 
-    fun createTrainers(trainers: List<TrainerModel>) {
+    fun createTrainers(trainers: List<TrainerScheme>) {
         binding.homeItemsRecycleView.let {
             it.adapter = TrainersAdapter(trainers) { item ->
-                Log.d(TAG, "Item $item is clicked.")
-                startTrainerFragment(trainersScheme[item])
+                Log.d(TAG, "Trainer #$item is clicked.")
+                startTrainerFragment(trainers[item])
             }
             it.layoutManager = LinearLayoutManager(this.context)
         }

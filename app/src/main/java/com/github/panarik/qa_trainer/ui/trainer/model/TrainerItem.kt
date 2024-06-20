@@ -1,4 +1,5 @@
 package com.github.panarik.qa_trainer.ui.trainer.model
 
-open class TrainerItem {
-}
+import java.io.Serializable
+
+open class TrainerItem : Serializable

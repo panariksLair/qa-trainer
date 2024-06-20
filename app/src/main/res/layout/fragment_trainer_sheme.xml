@@ -8,13 +8,12 @@
     tools:context=".ui.trainer.scheme.TrainerSchemeFragment">
 
     <ImageView
-        android:id="@+id/trainer_logo"
+        android:id="@+id/trainer_banner"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/trainer_item_testrail_logo"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/trainer_body"
@@ -24,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/trainer_logo">
+        app:layout_constraintTop_toBottomOf="@id/trainer_banner">
 
         <TextView
             android:id="@+id/trainer_name"
@@ -38,7 +37,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/trainerTopics"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
