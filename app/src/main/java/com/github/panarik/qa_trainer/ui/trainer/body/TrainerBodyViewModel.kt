@@ -1,10 +1,11 @@
 package com.github.panarik.qa_trainer.ui.trainer.body
 
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.github.panarik.qa_trainer.R
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItem
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemImage
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemTextBlock
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemTitle
 
 class TrainerBodyViewModel : ViewModel() {
 
@@ -15,11 +16,10 @@ class TrainerBodyViewModel : ViewModel() {
         return this
     }
 
-    fun getTrainerItems(): List<View> =
-        listOf(
-            TextView(fragment.context).apply { text = "Text 1" },
-            ImageView(fragment.context).apply { setImageResource(R.drawable.trainer_item_testrail_logo) },
-            TextView(fragment.context).apply { text = "Text 2" }
-        )
+    fun getTrainerItems(): List<TrainerItem> = listOf(
+        TrainerItemTitle("Title 1"),
+        TrainerItemImage(R.drawable.trainer_item_testrail_logo),
+        TrainerItemTextBlock("Some text block to explain current topic.")
+    )
 
 }
