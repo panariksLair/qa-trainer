@@ -10,10 +10,10 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.github.panarik.qa_trainer.databinding.FragmentTrainerBodyBinding
-import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItem
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemImage
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemTextBlock
 import com.github.panarik.qa_trainer.ui.trainer.model.TrainerItemTitle
+import com.github.panarik.qa_trainer.ui.trainer.model.TrainerTopic
 
 class TrainerBodyFragment : Fragment() {
 
@@ -37,9 +37,9 @@ class TrainerBodyFragment : Fragment() {
         binding = null
     }
 
-    private fun createTrainerView(items: List<TrainerItem>) {
+    private fun createTrainerView(topic: TrainerTopic) {
         val layout = binding?.trainerBodyLayout
-        items.forEachIndexed { index, view ->
+        topic.steps.forEachIndexed { _, view ->
             when (view) {
 
                 is TrainerItemTitle -> layout?.addView(TextView(context).apply {
@@ -49,13 +49,15 @@ class TrainerBodyFragment : Fragment() {
                 })
 
                 is TrainerItemImage -> layout?.addView(ImageView(context).apply {
-                    setImageResource(view.resId)
+                    val image = context.resources.getDrawable(view.resId)
+                    setImageDrawable(image)
+                    adjustViewBounds = true
                 })
 
                 is TrainerItemTextBlock -> layout?.addView(TextView(context).apply {
                     text = view.text
                     setTextColor(Color.BLACK)
-                    textSize = 16F
+                    textSize = 20F
                 })
             }
         }

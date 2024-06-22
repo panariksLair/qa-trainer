@@ -25,7 +25,10 @@ class TrainerSchemeFragment : Fragment() {
     }
 
     private fun openTrainerBodyFragment(position: Int) {
-        val bundle = Bundle().apply { putInt("position", position) }
+        val bundle = Bundle().apply {
+            putSerializable("trainerBody", model.trainer)
+            putInt("trainerPosition", position)
+        }
         binding?.let {
             Navigation.findNavController(it.root)
                 .navigate(R.id.action_trainerSchemeFragment_to_trainerBodyFragment, bundle)
